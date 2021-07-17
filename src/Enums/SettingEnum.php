@@ -6,8 +6,6 @@ use VitesseCms\Core\AbstractEnum;
 
 class SettingEnum extends AbstractEnum
 {
-    public const TWITTER_CONSUMER_KEY = 'TWITTER_CONSUMER_KEY';
-    public const TWITTER_CONSUMER_SECRET = 'TWITTER_CONSUMER_SECRET';
-    public const TWITTER_OAUTH_TOKEN = 'TWITTER_OAUTH_TOKEN';
-    public const TWITTER_OAUTH_TOKENSECRET = 'TWITTER_OAUTH_TOKENSECRET';
+    public const FACEBOOK_APP_ID = 'FACEBOOK_APP_ID';
+    public const FACEBOOK_APP_SECRET = 'FACEBOOK_APP_SECRET';
 }
