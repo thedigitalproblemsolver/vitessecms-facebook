@@ -3,6 +3,7 @@
 namespace VitesseCms\Facebook\Listeners;
 
 use Facebook\Facebook;
+use VitesseCms\Admin\Utils\AdminUtil;
 use VitesseCms\Communication\Fields\SocialShare;
 use VitesseCms\Core\Interfaces\InitiateListenersInterface;
 use VitesseCms\Core\Interfaces\InjectableInterface;
@@ -10,13 +11,24 @@ use VitesseCms\Facebook\Enums\SettingEnum;
 use VitesseCms\Facebook\Listeners\Admin\AdminMenuListener;
 use VitesseCms\Facebook\Listeners\Fields\SocialShareListener;
 use VitesseCms\Facebook\Services\FacebookService;
+use VitesseCms\Setting\Enum\CallingNameEnum;
 
 class InitiateAdminListeners implements InitiateListenersInterface
 {
     public static function setListeners(InjectableInterface $di): void
     {
         $di->eventsManager->attach('adminMenu', new AdminMenuListener());
-        if(
+        $di->eventsManager->attach('assets', new AssetsListener(
+            $di->configuration->getVendorNameDir(),
+            $di->setting->has(CallingNameEnum::FACEBOOK_PIXEL_ID),
+            AdminUtil::isAdminPage()
+        ));
+
+        /**
+         * not ready because facebook app needs a business verification
+         * before an application can post on a users timeline
+         */
+        /*if(
             $di->setting->has(SettingEnum::FACEBOOK_APP_ID)
             && $di->setting->has(SettingEnum::FACEBOOK_APP_SECRET)
         ) :
@@ -31,6 +43,6 @@ class InitiateAdminListeners implements InitiateListenersInterface
                     $di->url->getBaseUri()
                 )
             ));
-        endif;
+        endif;*/
     }
 }
