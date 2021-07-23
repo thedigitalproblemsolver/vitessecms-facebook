@@ -24,6 +24,7 @@ class InitiateAdminListeners implements InitiateListenersInterface
             AdminUtil::isAdminPage()
         ));
 
+        $di->eventsManager->attach(SocialShare::class, new SocialShareListener());
         /**
          * not ready because facebook app needs a business verification
          * before an application can post on a users timeline

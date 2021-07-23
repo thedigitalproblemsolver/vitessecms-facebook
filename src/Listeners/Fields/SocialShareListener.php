@@ -12,24 +12,50 @@ use VitesseCms\Form\Interfaces\AbstractFormInterface;
 
 class SocialShareListener
 {
-    private $facebookService;
+    //private $facebookService;
 
-    public function __construct(FacebookService $facebookService)
+    public function __construct()
     {
-        $this->facebookService = $facebookService;
+        //$this->facebookService = $facebookService;
     }
 
-    public function buildItemFormElement(Event $event, AbstractFormInterface $form, AbstractCollection $data = null): void
+    public function buildItemFormElement(Event $event, AbstractFormInterface $form, Item $item = null): void
     {
-        $form->addToggle('%FACEBOOK_SHARE_ITEM%', FacebookEnum::SHARE_ITEM);
+        if ($item !== null) :
+            $form->addHtml('<a
+                href="http://www.facebook.com/share.php?u='.$form->url->getBaseUri().$item->getSlug().'&quote='.$this->getTextFromItem($item).'"
+                target="_blank"
+                class="btn btn-success offset-lg-3"
+            >%FACEBOOK_SHARE_ITEM%</a>');
+        endif;
     }
 
-    public function beforeItemSave(Event $event, Item $item, Datafield $datafield): void
+    private function getTextFromItem(Item $item): string
+    {
+        $text = '';
+        if ($item->has('introtext')):
+            $text = $item->_('introtext');
+        endif;
+
+        if (empty(trim($text)) && $item->has('bodytext')):
+            $text = $item->_('bodytext');
+        endif;
+
+        $text = $item->getNameField().' : '.trim(strip_tags($text));
+        $textChunks = str_split($text, 400);
+        if(count($textChunks) > 1 ):
+            $textChunks[0] .= '...';
+        endif;
+
+        return $text;
+    }
+
+    /*public function beforeItemSave(Event $event, Item $item, Datafield $datafield): void
     {
         if ($item->getBool(FacebookEnum::SHARE_ITEM)) :
             $this->facebookService->postLink('Hello world', 'http://nu.nl');
 
             die();
         endif;
-    }
+    }*/
 }
