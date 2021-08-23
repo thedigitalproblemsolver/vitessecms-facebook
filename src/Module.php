@@ -11,4 +11,17 @@ class Module extends AbstractModule
     {
         parent::registerServices($di, 'Facebook');
     }
+
+    public function getAdminServices(DiInterface $di): void
+    {
+        /*$di->setShared('facebook',new FacebookService(
+            new Facebook([
+                'app_id' => $di->setting->getString(SettingEnum::FACEBOOK_APP_ID),
+                'app_secret' => $di->setting->getString(SettingEnum::FACEBOOK_APP_SECRET),
+                'default_graph_version' => 'v11.0'
+            ]),
+            $di->log,
+            $di->url->getBaseUri()
+        ));*/
+    }
 }

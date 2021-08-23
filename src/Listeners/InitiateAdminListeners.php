@@ -2,15 +2,12 @@
 
 namespace VitesseCms\Facebook\Listeners;
 
-use Facebook\Facebook;
 use VitesseCms\Admin\Utils\AdminUtil;
 use VitesseCms\Communication\Fields\SocialShare;
 use VitesseCms\Core\Interfaces\InitiateListenersInterface;
 use VitesseCms\Core\Interfaces\InjectableInterface;
-use VitesseCms\Facebook\Enums\SettingEnum;
 use VitesseCms\Facebook\Listeners\Admin\AdminMenuListener;
 use VitesseCms\Facebook\Listeners\Fields\SocialShareListener;
-use VitesseCms\Facebook\Services\FacebookService;
 use VitesseCms\Setting\Enum\CallingNameEnum;
 
 class InitiateAdminListeners implements InitiateListenersInterface
@@ -25,6 +22,7 @@ class InitiateAdminListeners implements InitiateListenersInterface
         ));
 
         $di->eventsManager->attach(SocialShare::class, new SocialShareListener());
+
         /**
          * not ready because facebook app needs a business verification
          * before an application can post on a users timeline

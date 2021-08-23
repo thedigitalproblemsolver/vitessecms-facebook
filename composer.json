@@ -24,6 +24,7 @@
     "vitessecms/admin": "~0.2.5",
     "vitessecms/communication": "~0.2.11",
     "vitessecms/media": "~0.2.6",
-    "vitessecms/setting": "~0.2.4"
+    "vitessecms/setting": "~0.2.4",
+    "vitessecms/configuration": "~0.2.0"
   }
 }

@@ -2,13 +2,18 @@
 
 namespace VitesseCms\Facebook\Controllers;
 
-use VitesseCms\Admin\AbstractAdminController;
+use VitesseCms\Core\AbstractController;
 
-class IndexController extends AbstractAdminController
+class IndexController extends AbstractController
 {
     public function loginCallbackAction()
     {
         var_dump('in loginCallbackAction');
         die();
+    }
+
+    public function getUserPostByItem(): void
+    {
+        
     }
 }
