@@ -1,0 +1,30 @@
+{
+  "name": "vitessecms/facebook",
+  "type": "library",
+  "description": "facebook module for VitesseCms",
+  "keywords": ["php","phalcon","vitessecms"],
+  "homepage": "https://github.com/thedigitalproblemsolver/VitesseCMS",
+  "license": "GPL-2.0-or-later",
+  "version": "0.0.1",
+  "authors": [
+    {
+      "name": "Jasper Jaklofsky",
+      "email": "info@thedigitalproblemsolver.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "VitesseCms\\Facebook\\": "src/"
+    }
+  },
+  "require": {
+    "facebook/graph-sdk": "^5.7",
+    "vitessecms/core": "~0.2.13",
+    "vitessecms/form": "~0.2.7",
+    "vitessecms/admin": "~0.2.5",
+    "vitessecms/communication": "~0.2.11",
+    "vitessecms/media": "~0.2.6",
+    "vitessecms/setting": "~0.2.4",
+    "vitessecms/configuration": "~0.2.1"
+  }
+}
