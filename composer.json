@@ -19,9 +19,9 @@
   },
   "require": {
     "facebook/graph-sdk": "^5.7",
-    "vitessecms/core": "~0.2.13",
+    "vitessecms/core": "~0.2.14",
     "vitessecms/form": "~0.2.7",
-    "vitessecms/admin": "~0.2.5",
+    "vitessecms/admin": "~0.2.6",
     "vitessecms/communication": "~0.2.11",
     "vitessecms/media": "~0.2.7",
     "vitessecms/setting": "~0.2.5",
