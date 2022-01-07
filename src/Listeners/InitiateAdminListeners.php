@@ -2,26 +2,22 @@
 
 namespace VitesseCms\Facebook\Listeners;
 
-use VitesseCms\Admin\Utils\AdminUtil;
 use VitesseCms\Communication\Fields\SocialShare;
 use VitesseCms\Core\Interfaces\InitiateListenersInterface;
 use VitesseCms\Core\Interfaces\InjectableInterface;
 use VitesseCms\Facebook\Listeners\Admin\AdminMenuListener;
 use VitesseCms\Facebook\Listeners\Fields\SocialShareListener;
-use VitesseCms\Setting\Enum\CallingNameEnum;
 
 class InitiateAdminListeners implements InitiateListenersInterface
 {
     public static function setListeners(InjectableInterface $di): void
     {
         $di->eventsManager->attach('adminMenu', new AdminMenuListener());
-        $di->eventsManager->attach('assets', new AssetsListener(
-            $di->configuration->getVendorNameDir(),
-            $di->setting->has(CallingNameEnum::FACEBOOK_PIXEL_ID),
-            AdminUtil::isAdminPage()
-        ));
-
         $di->eventsManager->attach(SocialShare::class, new SocialShareListener());
+        /*$di->eventsManager->attach(MediaEnum::ASSETS_LOAD_GENERIC, new AssetsListener(
+            $di->configuration->getVendorNameDir(),
+            $di->setting->has(CallingNameEnum::FACEBOOK_PIXEL_ID)
+        ));*/
 
         /**
          * not ready because facebook app needs a business verification

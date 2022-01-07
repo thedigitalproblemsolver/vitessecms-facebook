@@ -17,24 +17,16 @@ class AssetsListener
      */
     private $hasPixel;
 
-    /**
-     * @var bool
-     */
-    private $isAdmin;
-
-    public function __construct(string $vendorBaseDir, bool $hasPixel, bool $isAdmin)
+    public function __construct(string $vendorBaseDir, bool $hasPixel)
     {
         $this->vendorBaseDir = $vendorBaseDir;
         $this->hasPixel = $hasPixel;
-        $this->isAdmin = $isAdmin;
     }
 
-    public function load(Event $event, AssetsService $assetsService): void
+    public function loadGeneric(Event $event, AssetsService $assetsService): void
     {
-        if ($this->hasPixel && !$this->isAdmin) :
-            $assetsService->addInlineJs(
-                file_get_contents($this->vendorBaseDir . 'facebook/src/Resources/js/facebook.js')
-            );
+        if ($this->hasPixel) :
+            $assetsService->addInlineJs(file_get_contents($this->vendorBaseDir . 'facebook/src/Resources/js/facebook.js'));
         endif;
     }
 }
