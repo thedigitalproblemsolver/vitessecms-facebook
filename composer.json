@@ -20,7 +20,7 @@
   "require": {
     "facebook/graph-sdk": "^5.7",
     "vitessecms/core": "~0.2.21",
-    "vitessecms/form": "~0.2.8",
+    "vitessecms/form": "~0.2.9",
     "vitessecms/admin": "~0.2.9",
     "vitessecms/communication": "~0.2.12",
     "vitessecms/media": "~0.2.11",
