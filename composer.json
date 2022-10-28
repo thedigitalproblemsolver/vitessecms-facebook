@@ -19,12 +19,12 @@
   },
   "require": {
     "facebook/graph-sdk": "^5.7",
-    "vitessecms/core": "~0.2.22",
-    "vitessecms/form": "~0.2.9",
+    "vitessecms/core": "~0.2.23",
+    "vitessecms/form": "~0.2.10",
     "vitessecms/admin": "~0.2.9",
     "vitessecms/communication": "~0.2.12",
-    "vitessecms/media": "~0.2.11",
-    "vitessecms/setting": "~0.2.5",
+    "vitessecms/media": "~0.2.12",
+    "vitessecms/setting": "~0.2.6",
     "vitessecms/configuration": "~0.2.2"
   }
 }
