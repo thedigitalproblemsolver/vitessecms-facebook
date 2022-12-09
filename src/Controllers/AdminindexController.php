@@ -18,26 +18,6 @@ use VitesseCms\Setting\Services\SettingService;
 
 class AdminindexController extends AbstractAdminController
 {
-    /**
-     * @var SettingService
-     */
-    private $setting;
-
-    /**
-     * @var ViewService
-     */
-    private $view;
-
-    /**
-     * @var ConfigService
-     */
-    private $configuration;
-
-    /**
-     * @var FlashService
-     */
-    private $flash;
-
     public function onConstruct()
     {
         parent::onConstruct();
