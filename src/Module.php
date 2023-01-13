@@ -2,7 +2,7 @@
 
 namespace VitesseCms\Facebook;
 
-use Phalcon\DiInterface;
+use Phalcon\Di\DiInterface;
 use VitesseCms\Core\AbstractModule;
 
 class Module extends AbstractModule
