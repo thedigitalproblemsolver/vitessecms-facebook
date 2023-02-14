@@ -24,7 +24,7 @@ class AdminindexController extends AbstractAdminController
 
         $this->setting = $this->eventsManager->fire(\VitesseCms\Setting\Enum\SettingEnum::ATTACH_SERVICE_LISTENER, new stdClass());
         $this->view = $this->eventsManager->fire(ViewEnum::ATTACH_SERVICE_LISTENER, new stdClass());
-        $this->configuration = $this->eventsManager->fire(ConfigurationEnum::ATTACH_SERVICE_LISTENER, new stdClass());
+        $this->configuration = $this->eventsManager->fire(ConfigurationEnum::ATTACH_SERVICE_LISTENER->value, new stdClass());
         $this->flash = $this->eventsManager->fire(FlashEnum::ATTACH_SERVICE_LISTENER, new stdClass());
     }
 
