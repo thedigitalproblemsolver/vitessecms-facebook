@@ -2,9 +2,9 @@
 
 namespace VitesseCms\Facebook\Controllers;
 
-use VitesseCms\Core\AbstractController;
+use VitesseCms\Core\AbstractControllerFrontend;
 
-class IndexController extends AbstractController
+class IndexController extends AbstractControllerFrontend
 {
     public function loginCallbackAction()
     {
