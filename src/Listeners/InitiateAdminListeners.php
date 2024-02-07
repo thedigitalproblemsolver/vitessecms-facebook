@@ -1,4 +1,5 @@
-<?php declare(strict_types=1);
+<?php
+declare(strict_types=1);
 
 namespace VitesseCms\Facebook\Listeners;
 
@@ -10,10 +11,10 @@ use VitesseCms\Facebook\Listeners\Fields\SocialShareListener;
 
 class InitiateAdminListeners implements InitiateListenersInterface
 {
-    public static function setListeners(InjectableInterface $di): void
+    public static function setListeners(InjectableInterface $injectable): void
     {
-        $di->eventsManager->attach('adminMenu', new AdminMenuListener());
-        $di->eventsManager->attach(SocialShare::class, new SocialShareListener());
+        $injectable->eventsManager->attach('adminMenu', new AdminMenuListener());
+        $injectable->eventsManager->attach(SocialShare::class, new SocialShareListener());
         /*$di->eventsManager->attach(MediaEnum::ASSETS_LOAD_GENERIC, new AssetsListener(
             $di->configuration->getVendorNameDir(),
             $di->setting->has(CallingNameEnum::FACEBOOK_PIXEL_ID)
